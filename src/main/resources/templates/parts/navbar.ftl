@@ -12,13 +12,13 @@
                     <a class="nav-link" aria-current="page" href="/">Home page</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Categories</a>
+                    <a class="nav-link" aria-current="page" href="/category">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Product comparison</a>
+                    <a class="nav-link" aria-current="page" href="/comparison">Product comparison</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Profile</a>
+                    <a class="nav-link" aria-current="page" href="/profile">Profile</a>
                 </li>
             </ul>
 

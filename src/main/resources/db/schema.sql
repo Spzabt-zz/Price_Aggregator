@@ -13,12 +13,10 @@ CREATE TABLE product
     price         NUMERIC(10, 2) NOT NULL,
     description   VARCHAR(1000)  NOT NULL,
     shop_name     VARCHAR(100)   NOT NULL,
-    /*video_card_id INTEGER        NOT NULL REFERENCES video_card (id),
-    processors_id INTEGER        NOT NULL REFERENCES processors (id),*/
     category_id   INTEGER        NOT NULL REFERENCES category (id)
 );
 
-CREATE TABLE users
+CREATE TABLE usr
 (
     id       BIGSERIAL    NOT NULL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
@@ -26,4 +24,14 @@ CREATE TABLE users
     password VARCHAR(50)  NOT NULL,
     role     VARCHAR(5)   NOT NULL
 );
+
+insert into category (id, category_name) values (1, 'Motherboards');
+insert into category (id, category_name) values (2, 'Processors');
+insert into category (id, category_name) values (3, 'Memory');
+insert into category (id, category_name) values (4, 'Video cards');
+insert into category (id, category_name) values (5, 'External Hard Drives');
+insert into category (id, category_name) values (6, 'SSD');
+insert into category (id, category_name) values (7, 'Internal Power Supplies');
+insert into category (id, category_name) values (8, 'Fans & Cooling');
+insert into category (id, category_name) values (9, 'Computer Cases');
 
