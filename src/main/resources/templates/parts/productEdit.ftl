@@ -1,18 +1,26 @@
 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
    aria-controls="collapseExample">
-    Add product
+    Додати товар
 </a>
 <div class="collapse <#if product??>show</#if>" id="collapseExample">
-    <form method="post" enctype="multipart/form-data">
+    <form id="productAdding" method="post" enctype="multipart/form-data">
         <div class="mt-3">
             <div class="input-group mb-3">
                 <input type="text" class="form-control"
-                       <#--value="<#if product??>${product.name}</#if>"--> name="name" placeholder="Enter product name"/>
+                       <#--value="<#if product??>${product.name}</#if>"--> name="name" placeholder="Введіть назву продукту"/>
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control"
-                       <#--value="<#if message??>${message.tag}</#if>"--> name="brandName"
-                       placeholder="brand name"/>
+                <#--<input type="text" class="form-control"
+                       &lt;#&ndash;value="<#if message??>${message.tag}</#if>"&ndash;&gt; name="brandName"
+                       placeholder="brand name"/>-->
+                <select name="brandName" class="form-select" form="productAdding" aria-label="Default select example">
+                    <option selected>Відкрийте список</option>
+                    <#list brands as brand>
+                        <option value="${brand.brandName}">${brand.brandName}</option>
+                    <#else>
+                        No brands
+                    </#list>
+                </select>
                 <#--<#if tagError??>
                     <div class="invalid-feedback">
                         ${tagError}
@@ -22,31 +30,31 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control"
                        name="description"
-                       placeholder="description"/>
+                       placeholder="Опис"/>
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control"
+                <input type="number" class="form-control"
                        name="price"
-                       placeholder="price"/>
+                       placeholder="Ціна"/>
             </div>
             <div class="input-group mb-3">
                 <input type="text" class="form-control"
                        name="shopName"
-                       placeholder="shop name"/>
+                       placeholder="Назва магазину"/>
             </div>
             <div class="input-group mb-3">
                 <input type="url" class="form-control"
                        name="shopUrl"
-                       placeholder="shop url"/>
+                       placeholder="Посилання на магазин"/>
             </div>
             <div class="input-group mb-3">
                 <input class="form-control" id="inputGroupFile02" type="file" name="file"/>
-                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                <label class="input-group-text" for="inputGroupFile02">Завнтажити</label>
             </div>
             <#--<input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
             <#--<input type="hidden" name="id" value="<#if product??>${product.id}<#else>-1</#if>"/>-->
             <div class="input-group mb-3">
-                <button class="btn btn-primary" type="submit">Add</button>
+                <button class="btn btn-primary" type="submit">Додати</button>
             </div>
         </div>
     </form>

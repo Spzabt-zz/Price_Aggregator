@@ -9,7 +9,7 @@
                         <img src="/static/images/cpu_PNG40.png" height="300" width="100%" alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">Processors</p>
+                            <p class="card-text">Процесори</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/2">
@@ -26,7 +26,7 @@
                              alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">Motherboards</p>
+                            <p class="card-text">Материнські плати</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/1">
@@ -42,7 +42,7 @@
                         <img src="/static/images/RAM-PNG.png" height="300" width="100%" alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">RAM</p>
+                            <p class="card-text">Оперативна пам'ять</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/3">
@@ -60,7 +60,7 @@
                              alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">Video cards</p>
+                            <p class="card-text">Відеокарти</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/4">
@@ -77,7 +77,7 @@
                              alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">External Hard Drives</p>
+                            <p class="card-text">Жорсткі диски</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/5">
@@ -111,7 +111,7 @@
                         <img src="/static/images/main_450_230V.png" height="300" width="100%" alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">Internal Power Supplies</p>
+                            <p class="card-text">Блоки живлення</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/7">
@@ -128,7 +128,7 @@
                              alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">Fans & Cooling</p>
+                            <p class="card-text">Системи охолодження</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/8">
@@ -145,7 +145,7 @@
                              width="100%" alt="processor"/>
 
                         <div class="card-body">
-                            <p class="card-text">Computer Cases</p>
+                            <p class="card-text">Корпуси</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/9">

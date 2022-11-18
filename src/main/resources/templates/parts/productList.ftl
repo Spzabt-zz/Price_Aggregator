@@ -6,17 +6,18 @@
                     <img src="/img/${product.filename}" class="card-img-top"/>
                 </#if>
                 <div class="card-body">
-                    <h1 class="card-text">${product.name}</h1>
+                    <h1 class="card-title">${product.name}</h1>
                     <h5 class="card-text">${product.brandName}</h5>
-                    <h5 class="card-text">${product.description}</h5>
-                    <h5 class="card-text">${product.price}</h5>
-                    <h5 class="card-text">${product.shopName}</h5>
-                    <h5 class="card-text">${product.shopUrl}</h5>
+                    <#--<h5 class="card-text">${product.description}</h5>-->
+                    <h5 class="card-text">${product.price}$</h5>
+                    <#--<h5 class="card-text">${product.shopName}</h5>
+                    <h5 class="card-text">${product.shopUrl}</h5>-->
+                    <a href="/product-details/${product.id}" class="btn btn-primary">Деталі товару</a>
                 </div>
                 <div class="card-footer text-muted container">
-                    <div class="row">
-                        <a class="col align-self-center"
-                           href="/comparison/${product.id}">Add to comparison
+                    <#--<div class="row">-->
+                        <a class="col btn btn-outline-primary mb-2"
+                           href="/comparison/${product.id}">Додати до порівняння
                         </a>
                         <br/>
                         <#--<form method="delete">
@@ -25,14 +26,14 @@
                             </a>
                         </form>-->
                         <form action="/product-delete/${product.id}" method="post">
-                            <input class="col btn btn-outline-primary" type="submit" value="Delete">
+                            <input class="col btn btn-outline-secondary" type="submit" value="Видалити">
                             <#--<input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
                         </form>
-                    </div>
+                    <#--</div>-->
                 </div>
             </div>
         </div>
     <#else>
-        No products
+        Немає продуктів
     </#list>
 </div>
