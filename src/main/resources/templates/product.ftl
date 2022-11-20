@@ -1,8 +1,11 @@
 <#import "parts/doctype.ftl" as doctype>
+<#include "parts/security.ftl">
 
 <@doctype.page>
 
-    <#include "parts/productEdit.ftl" />
+    <#if isAdmin>
+        <#include "parts/productEdit.ftl" />
+    </#if>
 
     <form class="mt-3" action="/product/${category_id}" id="productFilter" method="get">
         <div class="input-group mb-3">

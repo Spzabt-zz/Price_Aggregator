@@ -1,3 +1,5 @@
+<#include "security.ftl">
+
 <div class="row row-cols-1 row-cols-md-2 g-4 mt-3" id="message-list">
     <#list products as product>
         <div class="col" data-id="${product.id}">
@@ -16,19 +18,21 @@
                 </div>
                 <div class="card-footer text-muted container">
                     <#--<div class="row">-->
-                        <a class="col btn btn-outline-primary mb-2"
-                           href="/comparison/${product.id}">Додати до порівняння
+                    <form action="/comparison/${product.id}" method="post">
+                        <input class="col btn btn-outline-primary mb-2" type="submit" value="Додати до порівняння">
+                        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                    </form>
+                    <#--<form method="delete">
+                        <a class="col btn btn-outline-primary"
+                           href="/product/${product.id}">Delete product
                         </a>
-                        <br/>
-                        <#--<form method="delete">
-                            <a class="col btn btn-outline-primary"
-                               href="/product/${product.id}">Delete product
-                            </a>
-                        </form>-->
+                    </form>-->
+                    <#if isAdmin>
                         <form action="/product-delete/${product.id}" method="post">
                             <input class="col btn btn-outline-secondary" type="submit" value="Видалити">
-                            <#--<input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
+                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                         </form>
+                    </#if>
                     <#--</div>-->
                 </div>
             </div>

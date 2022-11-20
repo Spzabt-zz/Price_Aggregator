@@ -21,6 +21,6 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        WebMvcConfigurer.super.addViewControllers(registry);
+        registry.addViewController("/login").setViewName("login");
     }
 }

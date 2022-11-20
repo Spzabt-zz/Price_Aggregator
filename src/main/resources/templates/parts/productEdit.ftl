@@ -51,7 +51,7 @@
                 <input class="form-control" id="inputGroupFile02" type="file" name="file"/>
                 <label class="input-group-text" for="inputGroupFile02">Завнтажити</label>
             </div>
-            <#--<input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <#--<input type="hidden" name="id" value="<#if product??>${product.id}<#else>-1</#if>"/>-->
             <div class="input-group mb-3">
                 <button class="btn btn-primary" type="submit">Додати</button>

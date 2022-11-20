@@ -8,6 +8,7 @@ import org.priceaggregator.aggregator.repository.CategoryRepo;
 import org.priceaggregator.aggregator.repository.ProductRepo;
 import org.priceaggregator.aggregator.service.ProductService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +73,7 @@ public class ProductController {
         return "product";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/product/{category_id}")
     public String productAdding(
             @RequestParam String name,
@@ -114,6 +116,7 @@ public class ProductController {
         return "productDetails";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/product-delete/{product_id}")
     public String deleteProduct(@PathVariable Long product_id) {
         Product product = productRepo.getProductById(product_id);

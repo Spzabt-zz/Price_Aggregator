@@ -1,6 +1,5 @@
 package org.priceaggregator.aggregator.repository;
 
-import org.priceaggregator.aggregator.model.Category;
 import org.priceaggregator.aggregator.model.Product;
 import org.springframework.data.repository.CrudRepository;
 

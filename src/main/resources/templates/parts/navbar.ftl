@@ -1,3 +1,6 @@
+<#import "login.ftl" as l>
+<#include "security.ftl">
+
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Price aggregator</a>
@@ -11,18 +14,22 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Головна сторінка</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/category">Категорії</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/comparison">Порівняння товарів</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/profile">Профіль</a>
-                </li>
+                <#if user?? && currentUserId != -1>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/category">Категорії</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/comparison">Порівняння товарів</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/profile">Профіль</a>
+                    </li>
+                </#if>
             </ul>
 
-            <div class="navbar-text me-3">Увійдіть в систему</div>
+            <div class="navbar-text me-3"><#if user?? && currentUserId != -1>${name}<#else>Please, login</#if></div>
+
+            <@l.logout user?? currentUserId/>
         </div>
     </div>
 </nav>

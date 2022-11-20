@@ -1,41 +1,3 @@
-CREATE TABLE category
-(
-    id            BIGSERIAL   NOT NULL PRIMARY KEY,
-    category_name VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE product
-(
-    id            BIGSERIAL      NOT NULL PRIMARY KEY,
-    name          VARCHAR(500)   NOT NULL,
-    picture       VARCHAR(255)   NOT NULL,
-    brand_name    VARCHAR(100)   NOT NULL,
-    price         NUMERIC(10, 2) NOT NULL,
-    description   VARCHAR(1000)  NOT NULL,
-    shop_name     VARCHAR(100)   NOT NULL,
-    category_id   INTEGER        NOT NULL REFERENCES category (id)
-);
-
-CREATE TABLE usr
-(
-    id       BIGSERIAL    NOT NULL PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
-    email    VARCHAR(100) NOT NULL,
-    password VARCHAR(50)  NOT NULL,
-    role     VARCHAR(5)   NOT NULL
-);
---category
-insert into category (id, category_name) values (1, 'Motherboards');
-insert into category (id, category_name) values (2, 'Processors');
-insert into category (id, category_name) values (3, 'Memory');
-insert into category (id, category_name) values (4, 'Video cards');
-insert into category (id, category_name) values (5, 'External Hard Drives');
-insert into category (id, category_name) values (6, 'SSD');
-insert into category (id, category_name) values (7, 'Internal Power Supplies');
-insert into category (id, category_name) values (8, 'Fans & Cooling');
-insert into category (id, category_name) values (9, 'Computer Cases');
-
---brand
 --mather board
 insert into brand (id, brand_name, category_id) values (1, 'AMD', 1);
 insert into brand (id, brand_name, category_id) values (2, 'ASRock', 1);
@@ -82,21 +44,3 @@ insert into brand (id, brand_name, category_id) values (34, 'BeQuiet', 8);
 insert into brand (id, brand_name, category_id) values (35, 'AEROCOOL', 9);
 insert into brand (id, brand_name, category_id) values (36, 'CoolerMaster', 9);
 insert into brand (id, brand_name, category_id) values (37, 'DeepCool', 9);
-
-/*insert into brand (id, brand_name, category_id) values (6, 'SSD');
-insert into brand (id, brand_name, category_id) values (7, 'Internal Power Supplies');
-insert into brand (id, brand_name, category_id) values (8, 'Fans & Cooling');
-insert into brand (id, brand_name, category_id) values (9, 'Computer Cases');*/
-
-insert into usr (id, username, password, email)
-values (1, 'admin', '123', 'some@gmail.com');
-
-insert into user_role (user_id, roles)
-values (1, 'USER'),
-       (1, 'ADMIN');
-
-create extension if not exists pgcrypto;
-update usr set password = crypt(password, gen_salt('bf', 8));
-
------------------------------
-select * from product inner join comparison c on product.id = c.product_id

@@ -16,11 +16,6 @@
             <a class="card-text" href="${product.shopUrl}" >${product.shopUrl}</a>
             </h5>
         </div>
-        <div class="card-footer text-muted container">
-            <a class="col btn btn-outline-primary"
-               href="/comparison/${product.id}">Додати до порівняння
-            </a>
-        </div>
     </div>
 
 </@doctype.page>

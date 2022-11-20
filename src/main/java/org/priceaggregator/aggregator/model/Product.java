@@ -1,11 +1,17 @@
 package org.priceaggregator.aggregator.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+//@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Entity
 public class Product {
     @Id
@@ -24,9 +30,8 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "comparison_id")
-    private Comparison comparison;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Comparison> comparison;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Comment> comments;
