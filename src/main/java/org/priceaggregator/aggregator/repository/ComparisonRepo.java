@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface ComparisonRepo extends CrudRepository<Comparison, Long> {
     List<Comparison> findAllByUser(User user);
+    List<Comparison> findAllByProduct(Product product);
     Comparison findTop1ComparisonByProductAndUser(Product product, User user);
 }

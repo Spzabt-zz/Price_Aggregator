@@ -1,8 +1,10 @@
 package org.priceaggregator.aggregator.controller;
 
+import org.priceaggregator.aggregator.model.Brand;
 import org.priceaggregator.aggregator.model.Comparison;
 import org.priceaggregator.aggregator.model.Product;
 import org.priceaggregator.aggregator.model.User;
+import org.priceaggregator.aggregator.repository.BrandRepo;
 import org.priceaggregator.aggregator.repository.ComparisonRepo;
 import org.priceaggregator.aggregator.repository.ProductRepo;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -20,10 +22,12 @@ import java.util.Set;
 public class ComparisonController {
     private final ProductRepo productRepo;
     private final ComparisonRepo comparisonRepo;
+    private final BrandRepo brandRepo;
 
-    public ComparisonController(ProductRepo productRepo, ComparisonRepo comparisonRepo) {
+    public ComparisonController(ProductRepo productRepo, ComparisonRepo comparisonRepo, BrandRepo brandRepo) {
         this.productRepo = productRepo;
         this.comparisonRepo = comparisonRepo;
+        this.brandRepo = brandRepo;
     }
 
     @GetMapping("/comparison")
@@ -42,16 +46,27 @@ public class ComparisonController {
         Product product = productRepo.getProductById(productId);
         Long category_id = product.getCategory().getId();
 
-        for (Comparison comparison1 : comparisons) {
-            if (comparison1.getProduct().getCategory().getId() != category_id) {
-                return "redirect:/product/" + category_id;
-            }
-        }
+        //---
+        List<Product> products = productRepo.findAllByCategory_Id(category_id);
+        List<Brand> brands = brandRepo.findAllByCategory_Id(category_id);
+
+        model.addAttribute("brands", brands);
+        model.addAttribute("products", products);
+        model.addAttribute("category_id", category_id);
+        //---
 
         if (comparisons.size() >= 3) {
             model.addAttribute("messageType", "danger");
             model.addAttribute("message", "Максимум 3 товари для порівняння");
-            return "redirect:/product/" + category_id;
+            return "product";
+        }
+
+        for (Comparison comparison1 : comparisons) {
+            if (comparison1.getProduct().getCategory().getId() != category_id) {
+                model.addAttribute("messageType", "danger");
+                model.addAttribute("message", "Неможна додавати товари для порівння з різних категорій");
+                return "product";
+            }
         }
 
         boolean hasDuplicate = false;
@@ -72,8 +87,12 @@ public class ComparisonController {
                 comparison.setProduct(product);
                 comparison.setUser(user);
                 comparisonRepo.save(comparison);
+
                 model.addAttribute("messageType", "success");
                 model.addAttribute("message", "Додано до порівняння");
+            } else {
+                model.addAttribute("messageType", "danger");
+                model.addAttribute("message", "Неможна додавати до порівняння однаковий товар");
             }
 
         } else {
@@ -84,7 +103,7 @@ public class ComparisonController {
             model.addAttribute("message", "Додано до порівняння");
         }
 
-        return "redirect:/product/" + category_id;
+        return "product";
     }
 
     @PostMapping("/comparison-delete/{productId}")

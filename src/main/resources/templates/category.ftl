@@ -13,7 +13,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/2">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/1">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/3">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/4">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/5">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/6">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/7">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/8">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form action="/product/9">
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Показати</button>
                                     </form>
                                 </div>
                             </div>

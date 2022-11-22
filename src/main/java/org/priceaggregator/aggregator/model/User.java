@@ -21,16 +21,16 @@ public class User implements UserDetails {
     private Long id;
     @Getter
     @Setter
-    @NotBlank(message = "Username cannot be empty")
+    @NotBlank(message = "Ім'я не може бути пустим")
     private String username;
     @Getter
     @Setter
-    @NotBlank(message = "Password cannot be empty")
+    @NotBlank(message = "Пароль не може бути пустим")
     private String password;
     @Getter
     @Setter
-    @Email(message = "Email is not correct")
-    @NotBlank(message = "Email cannot be empty")
+    @Email(message = "Пошта некоректна")
+    @NotBlank(message = "Пошта не може бути порожньою")
     private String email;
 
     @Getter

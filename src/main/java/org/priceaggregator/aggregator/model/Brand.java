@@ -1,10 +1,14 @@
 package org.priceaggregator.aggregator.model;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @Entity
 public class Brand {
     @Id

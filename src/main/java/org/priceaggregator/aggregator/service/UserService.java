@@ -3,7 +3,6 @@ package org.priceaggregator.aggregator.service;
 import org.priceaggregator.aggregator.model.Role;
 import org.priceaggregator.aggregator.model.User;
 import org.priceaggregator.aggregator.repository.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

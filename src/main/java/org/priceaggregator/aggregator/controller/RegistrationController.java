@@ -35,11 +35,11 @@ public class RegistrationController {
         boolean isConfirmEmpty = StringUtils.isEmpty(passwordConfirm);
 
         if (isConfirmEmpty) {
-            model.addAttribute("password2Error", "Password confirmation cannot be empty");
+            model.addAttribute("password2Error", "Підтвердження паролю не може бути порожнім");
         }
 
         if (user.getPassword() != null && !user.getPassword().equals(passwordConfirm)) {
-            model.addAttribute("passwordError", "Passwords are different!");
+            model.addAttribute("passwordError", "Паролі різні!");
             return "registration";
         }
 
@@ -50,7 +50,7 @@ public class RegistrationController {
         }
 
         if (!userService.addUser(user)) {
-            model.addAttribute("usernameError", "User exists!");
+            model.addAttribute("usernameError", "Такий користувач існує!");
             return "registration";
         }
 

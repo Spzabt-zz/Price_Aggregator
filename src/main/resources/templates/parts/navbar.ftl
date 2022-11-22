@@ -27,7 +27,7 @@
                 </#if>
             </ul>
 
-            <div class="navbar-text me-3"><#if user?? && currentUserId != -1>${name}<#else>Please, login</#if></div>
+            <div class="navbar-text me-3"><#if user?? && currentUserId != -1>${name}<#else>Увійдіть в систему</#if></div>
 
             <@l.logout user?? currentUserId/>
         </div>

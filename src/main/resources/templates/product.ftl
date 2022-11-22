@@ -30,8 +30,6 @@
                 </select>
                 <label for="floatingInputBrandSorting">Сортування за брендом</label>
             </div>
-            <#--<input type="text" name="filterByPrice" value="${filter!""}" class="form-control" placeholder="Search by tag"
-                   aria-label="Recipient's username" aria-describedby="button-addon2"/>-->
             <button class="btn btn-primary" type="submit" id="button-addon2">Пошук</button>
         </div>
     </form>
