@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @Controller
@@ -107,6 +111,65 @@ public class ProductController {
             model.addAttribute("product", null);
             productRepo.save(product);
         }
+
+        return "redirect:/product/" + category_id;
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/product-edit/{category_id}")
+    public String getProductsForEdit(
+            Model model,
+            @PathVariable Long category_id,
+            @RequestParam(required = false) Product product
+    ) {
+        List<Product> products = productRepo.findAllByCategory_Id(category_id);
+        List<Brand> brands = brandRepo.findAllByCategory_Id(category_id);
+
+        model.addAttribute("brands", brands);
+        model.addAttribute("products", products);
+        model.addAttribute("category_id", category_id);
+        model.addAttribute("product", product);
+
+        return "product";
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/product-edit/{category_id}")
+    public String productEdit(
+            @PathVariable Long category_id,
+            @RequestParam("id") Product product,
+            @RequestParam("name") String name,
+            @RequestParam("brandName") String brandName,
+            @RequestParam("description") String description,
+            @RequestParam("price") String price,
+            @RequestParam("shopName") String shopName,
+            @RequestParam("shopUrl") String shopUrl,
+            @RequestParam(value = "file") MultipartFile file
+    ) throws IOException, ParseException {
+        if (!StringUtils.isEmpty(name)) {
+            product.setName(name);
+        }
+        if (!StringUtils.isEmpty(brandName)) {
+            product.setBrandName(brandName);
+        }
+        if (!StringUtils.isEmpty(description)) {
+            product.setDescription(description);
+        }
+        if (!StringUtils.isEmpty(price)) {
+            NumberFormat nf = NumberFormat.getInstance(Locale.US);
+            float actualPrice = nf.parse(price).floatValue();
+            product.setPrice(actualPrice);
+        }
+        if (!StringUtils.isEmpty(shopName)) {
+            product.setShopName(shopName);
+        }
+        if (!StringUtils.isEmpty(shopUrl)) {
+            product.setShopUrl(shopUrl);
+        }
+
+        productService.saveFile(product, file, uploadPath);
+
+        productRepo.save(product);
 
         return "redirect:/product/" + category_id;
     }

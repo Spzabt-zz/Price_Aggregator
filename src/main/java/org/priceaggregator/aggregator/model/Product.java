@@ -35,6 +35,7 @@ public class Product {
     @NotBlank(message = "Введіть назву магазину")
     private String shopName;
 
+    @NotBlank(message = "Введіть посилання на магазин")
     private String shopUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)

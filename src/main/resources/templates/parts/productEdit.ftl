@@ -7,7 +7,7 @@
         <div class="mt-3">
             <div class="input-group mb-3">
                 <input type="text" class="form-control ${(nameError??)?string('is-invalid', '')}"
-                       name="name" placeholder="Введіть назву продукту"/>
+                       value="<#if product??>${product.name}</#if>" name="name" placeholder="Введіть назву продукту"/>
                 <#if nameError??>
                     <div class="invalid-feedback">
                         ${nameError}
@@ -32,7 +32,7 @@
             </div>
             <div class="input-group mb-3">
                 <input type="text" class="form-control ${(descriptionError??)?string('is-invalid', '')}"
-                       name="description"
+                       value="<#if product??>${product.description}</#if>" name="description"
                        placeholder="Опис"/>
                 <#if descriptionError??>
                     <div class="invalid-feedback">
@@ -41,8 +41,8 @@
                 </#if>
             </div>
             <div class="input-group mb-3">
-                <input type="number" class="form-control ${(priceError??)?string('is-invalid', '')}"
-                       name="price"
+                <input type="text" <#--step="any"--> class="form-control ${(priceError??)?string('is-invalid', '')}"
+                       value="<#if product??>${product.price}<#else>0</#if>" name="price"
                        placeholder="Ціна"/>
                 <#if priceError??>
                     <div class="invalid-feedback">
@@ -52,7 +52,7 @@
             </div>
             <div class="input-group mb-3">
                 <input type="text" class="form-control ${(shopNameError??)?string('is-invalid', '')}"
-                       name="shopName"
+                       value="<#if product??>${product.shopName}</#if>" name="shopName"
                        placeholder="Назва магазину"/>
                 <#if shopNameError??>
                     <div class="invalid-feedback">
@@ -61,8 +61,8 @@
                 </#if>
             </div>
             <div class="input-group mb-3">
-                <input type="url" class="form-control"
-                       name="shopUrl ${(shopUrlError??)?string('is-invalid', '')}"
+                <input type="url" class="form-control ${(shopUrlError??)?string('is-invalid', '')}"
+                       value="<#if product??>${product.shopUrl}</#if>" name="shopUrl"
                        placeholder="Посилання на магазин"/>
                 <#if shopUrlError??>
                     <div class="invalid-feedback">
@@ -75,6 +75,7 @@
                 <label class="input-group-text" for="inputGroupFile02">Завнтажити</label>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+            <input type="hidden" name="id" value="<#if product??>${product.id}<#else>-1</#if>"/>
             <div class="input-group mb-3">
                 <button class="btn btn-primary" type="submit">Додати</button>
             </div>

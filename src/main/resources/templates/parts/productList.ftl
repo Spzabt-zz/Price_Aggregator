@@ -24,6 +24,10 @@
                         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                     </form>
                     <#if isAdmin>
+                        <a class="col btn btn-primary mb-2"
+                           href="/product-edit/${product.category.id}?product=${product.id}">
+                            Відредагувати товар
+                        </a>
                         <form action="/product-delete/${product.id}" method="post">
                             <input class="col btn btn-outline-secondary" type="submit" value="Видалити">
                             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
